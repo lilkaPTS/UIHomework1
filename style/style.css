@@ -1,5 +1,41 @@
-p {
-    font-size: 40px;
-    text-align: center;
-    margin-top: 500px;
+body {
+    font-family: "Times New Roman", serif;
+    font-size: 30px;
 }
+img
+{
+    display:block;
+    width: 300px;
+    height: 400px;
+
+}
+table {
+    margin: 0;
+    border-collapse: collapse;
+    border: 2px solid black;}
+td {
+    border: 2px solid black;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 50px;
+}
+td.cellImg {
+    padding: 0;
+}
+td.cellHeading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0;
+}
+td.cellType {
+    font-weight: bold;
+    padding-right: 10px;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
