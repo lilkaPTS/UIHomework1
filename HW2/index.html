@@ -7,14 +7,19 @@
     <script src="js/script.js"></script>
 </head>
 <body>
-<div>
-<label>
-    <input id="A" type="text"/><span class="marginX">x<sup>2</sup></span><input id="B" type="text"/><span class="marginX">x</span><input id="C" type="text"/>
-</label>
-<button id="Enter">Нажать</button>
+<div class="container">
+    <h2>Калькулятор квадратных уравнений</h2>
+    <div class="innerContainer">
+        <label class="inputInterface">
+            <input class="textBox textSizer" id="A" type="text"/><span class="marginX textSizer">x<sup>2</sup></span>
+            <input class="textBox textSizer" id="B" type="text"/><span class="marginX textSizer">x</span>
+            <input class="textBox textSizer" id="C" type="text"/><span class="marginX textSizer">=0</span>
+        </label>
+        <button class="textSizer" id="Enter">Решить квадратное уравнение</button>
+        <table id='table'>
+            <caption class='tableCaption'>Решения</caption>
+        </table>
+    </div>
 </div>
-<table id='table'>
-    <caption>Решения</caption>
-</table>
 </body>
 </html>
