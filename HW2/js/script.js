@@ -23,11 +23,13 @@ function solution() {
     let discriminant = Math.pow(b, 2) - 4 * a * c;
     if(discriminant<0){
         elementTd.appendChild(document.createTextNode("Нет действительных корней!"));
-    } else if(discriminant === 0){
-        let x = -b / (2 * a);
-        elementTd.appendChild(document.createTextNode("x12 = " + x));
+    } else if(discriminant === 0) {
+        let x12 = -b / (2 * a)
+        elementTd.appendChild(document.createTextNode("x12 = " + x12));
     } else {
-        elementTd.appendChild(document.createTextNode("x1 = " + (-b + Math.sqrt(discriminant))/(2 * a) + " x2 = " + (Math.sqrt(discriminant)/(2 * a))));
+        let x1 = (-b - Math.sqrt(discriminant))/(2 * a);
+        let x2 = (-b + Math.sqrt(discriminant))/(2 * a);
+        elementTd.appendChild(document.createTextNode("x1 = " + x1 + " x2 = " + x2));
     }
     elementTr.appendChild(elementTd);
     elementTd.onclick = function () {
