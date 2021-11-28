@@ -1,0 +1,15 @@
+span.marginX {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 25px;
+}
+table#table {
+    text-align: center;
+    width: 500px;
+}
+tr.attr1 {
+    background-color: gold;
+}
+tr.attr2 {
+    background-color: #6A442F;
+}
