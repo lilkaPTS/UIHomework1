@@ -3,7 +3,9 @@ window.addEventListener('load', init, false);
 function init() {
     document.getElementById('Enter').onclick = solution;
 }
+function computation() {
 
+}
 function solution() {
     let elementTable = document.getElementById('table');
     let elementTr = document.createElement('tr');
