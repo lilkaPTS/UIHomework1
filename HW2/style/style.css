@@ -48,15 +48,20 @@ table#table{
     font-size: 18px;
 }
 #table td {
+    width: 230px;
     padding: 5px 10px;
+    background: #69696D;
 }
-tr.attr1 {
+
+#table tr.attr1 td {
     background-color: #69696D;
 }
-tr.attr2 {
+#table tr.attr2 td {
     background-color: #8B8A91;
 }
 caption.tableCaption {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     font-size: 25px;
+    text-align: left;
 }

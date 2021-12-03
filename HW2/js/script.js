@@ -1,15 +1,10 @@
 window.addEventListener('load', init, false);
 
 function init() {
-    document.getElementById('Enter').onclick = solution;
+    document.getElementById('Enter').onclick = validator;
 }
-function computation() {
 
-}
-function solution() {
-    let elementTable = document.getElementById('table');
-    let elementTr = document.createElement('tr');
-    let elementTd = document.createElement('td');
+function validator() {
     let a = Number(document.getElementById('A').value.replace(/\s/g, '').replace(/,/g, '.'));
     let b = Number(document.getElementById('B').value.replace(/\s/g, '').replace(/,/g, '.'));
     let c = Number(document.getElementById('C').value.replace(/\s/g, '').replace(/,/g, '.'));
@@ -22,22 +17,42 @@ function solution() {
         alert(str + (str.split(' ').length > 1 ? " аргументы должны быть числами!" : " аргумент должен быть числом!"));
         return;
     }
+    let result = computation(a,b,c);
+    fillingTable(result);
+}
+
+function computation(a,b,c) {
     let discriminant = Math.pow(b, 2) - 4 * a * c;
+    let result = [];
     if(discriminant<0){
-        elementTd.appendChild(document.createTextNode("Нет действительных корней!"));
+        result[0] = "Нет действительных корней!";
     } else if(discriminant === 0) {
-        let x12 = -b / (2 * a)
-        elementTd.appendChild(document.createTextNode("x12 = " + x12));
+        result[0] = -b / (2 * a);
     } else {
-        let x1 = (-b - Math.sqrt(discriminant))/(2 * a);
-        let x2 = (-b + Math.sqrt(discriminant))/(2 * a);
-        elementTd.appendChild(document.createTextNode("x1 = " + x1 + " x2 = " + x2));
+        result[0] = (-b - Math.sqrt(discriminant))/(2 * a);
+        result[1] = (-b + Math.sqrt(discriminant))/(2 * a);
     }
-    elementTr.appendChild(elementTd);
-    elementTd.onclick = function () {
+    return result;
+}
+
+function fillingTable(result) {
+    let elementTable = document.getElementById('table');
+    let elementTr = document.createElement('tr');
+    let mainElementTd = document.createElement('td');
+    let otherElementTd = document.createElement('td');
+    if(result.length<2) {
+        mainElementTd.appendChild(document.createTextNode(result[0]));
+        mainElementTd.setAttribute("colspan","2");
+        elementTr.appendChild(mainElementTd);
+    } else {
+        mainElementTd.appendChild(document.createTextNode(result[0]));
+        otherElementTd.appendChild(document.createTextNode(result[1]));
+        [mainElementTd,otherElementTd].forEach(el => elementTr.appendChild(el));
+    }
+    [mainElementTd,otherElementTd].forEach(el => el.onclick=function () {
         document.getElementById('table').removeChild(this.parentNode);
         fillingColor();
-    };
+    });
     elementTable.appendChild(elementTr);
     fillingColor();
 }
