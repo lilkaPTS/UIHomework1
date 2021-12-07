@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "rimraf ./dist && gulp --gulpfile  gulpfile.cjs",
-    "start": "node dist/index.js",
+    "start": "node built/local/output.js",
     "buildAndStart": "npm run build && npm run start"
   },
   "devDependencies": {
