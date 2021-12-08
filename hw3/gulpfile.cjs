@@ -1,12 +1,12 @@
 //https://www.npmjs.com/package/gulp-typescript//
-var gulp = require('gulp');
-var ts = require('gulp-typescript');
+var gulp = require("gulp");
+var ts = require("gulp-typescript");
+var uglify = require('gulp-uglify');
+const { src, dest } = require('gulp');
+var tsProject = ts.createProject("tsconfig.json");
 
-gulp.task('default', function () {
-    return gulp.src('src/index.ts')
-        .pipe(ts({
-            noImplicitAny: true,
-            outFile: 'output.js'
-        }))
-        .pipe(gulp.dest('built/local'));
+gulp.task("default", function () {
+    return tsProject.src()
+        .pipe(tsProject())
+        .js.pipe(uglify('index.js')).pipe(dest("dist"));
 });
