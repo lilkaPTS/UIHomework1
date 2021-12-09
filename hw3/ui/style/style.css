@@ -1,3 +1,45 @@
+body {
+    font-family: "Verdana",	sans-serif;
+    color:white;
+    margin: 0;
+    background-color: #2B282F;
+    text-align: center;
+}
+div.innerContainer {
+    padding-top: 5px;
+}
+div.container{
+    width: 900px;
+    background-color: #3F3D44;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    border-radius: 25px;
+    position: relative;
+    margin: 30px auto;
+}
+span.marginX {
+    margin-left: 5px;
+    color:#9ADE0A;
+}
+.textSizer {
+    font-size: 25px;
+}
+input.textBox{
+    width: 100px;
+    background-color: #8B8A91;
+    color: #DBEF0D
+}
+button#Enter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    padding: 2px 5px;
+    font-size: 20px;
+    background-color: #69696D;
+    color: #9ADE0A;
+}
+
 table#table{
     margin-left: auto;
     margin-right: auto;
@@ -8,5 +50,4 @@ table#table{
     text-align: center;
     padding-top: 20px;
     width: 50px;
-    border: 2px solid red;
 }

@@ -136,7 +136,7 @@ export class Tree<K, E> {
             let elementTable = document.createElement('table');
             elementTable.setAttribute("id", "table");
             // @ts-ignore
-            document.getElementById('body').appendChild(elementTable);
+            document.getElementById('tableHere').appendChild(elementTable);
         }
         let currentArray: Array<Node<K, E>|null> = [];
         currentArray[0] = this._root;
