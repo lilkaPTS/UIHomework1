@@ -23,7 +23,31 @@ export abstract class Tree<K, E> {
     }
 
     protected remove(key:K): void {
-
+        //Удаление листа
+        let currentNode: Node<K, E> | null = this._root;
+        let parentNode: Node<K, E> | null = null;
+        while (currentNode?.key != key) { //поиск
+            parentNode = currentNode;
+            if(currentNode == null){
+                return;
+            } else if (key < currentNode.key) {
+                currentNode = currentNode.lChild;
+            } else {
+                currentNode = currentNode.rChild;
+            }
+        }
+        if(currentNode.lChild == null && currentNode.rChild == null) {
+            if(currentNode == this._root) {
+                this._root = null;
+            } else {
+                if(parentNode)
+                    if(currentNode == parentNode.lChild){
+                        parentNode.lChild = null;
+                    } else {
+                        parentNode.rChild = null;
+                    }
+            }
+        }
     }
 
     protected insert(key: K, data: E): void {
@@ -51,6 +75,15 @@ export abstract class Tree<K, E> {
                     currentNode = currentNode.rChild;
                 }
             }
+        }
+    }
+
+    protected getLevel(node: Node<K, E>): number {
+        if(node!= null){
+            // @ts-ignore
+            return 1+Math.max(this.getLevel(node.lChild), this.getLevel(node.rChild))
+        } else {
+            return 0;
         }
     }
 

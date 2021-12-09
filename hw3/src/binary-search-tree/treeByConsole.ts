@@ -24,15 +24,17 @@ export class TreeByConsole<K, E> extends Tree<K, E>{
         let currentArray: Array<Node<K, E>|null> = [];
         currentArray[0] = this._root;
         if(this._root)
-        console.log(`\t${this._root.key}`);
+        this.consolePrinter(currentArray, 0);
+        let level: number = 0;
         while (true) {
             let printArray: Array<Node<K, E>|null> = [];
             for (let i = 0; i < currentArray.length; i++) {
                 printArray[printArray.length] = currentArray[i]?.lChild || null;
                 printArray[printArray.length] = currentArray[i]?.rChild || null;
             }
+            level++;
             if(this.isNull(printArray)){
-                this.consolePrinter(printArray);
+                this.consolePrinter(printArray, level);
                 currentArray = printArray;
             } else {
                 break;
@@ -40,11 +42,15 @@ export class TreeByConsole<K, E> extends Tree<K, E>{
         }
     }
 
-    private consolePrinter(node: Array<Node<K, E>|null>): void {
+    private consolePrinter(node: Array<Node<K, E>|null>, level: number): void {
         let str: string = "";
+        if(this._root)
+        for (let i = 0; i < this.getLevel(this._root)-level; i++) {
+            str+="\t";
+        }
         for (let i = 0; i < node.length; i++) {
             if(node[i]== null){
-                str+= "0\t";
+                str+= "\t";
             } else {
                 str += node[i]?.key + "\t";
             }

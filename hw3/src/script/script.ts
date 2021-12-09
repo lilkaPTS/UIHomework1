@@ -24,7 +24,7 @@ function onclickAdd(): void {
         tree.insert(Number(vertexArray[i].split('~')[0]), vertexArray[i].split('~')[1])
     }
     //tree.insert(a1,a2); ломается
-    tree.print("h");
+    tree.print();
 }
 function onclickGet(): void {
     let tree: TreeByHtml<number, string> = new TreeByHtml<number,string>();

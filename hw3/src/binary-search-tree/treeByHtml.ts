@@ -19,8 +19,8 @@ export class TreeByHtml<K, E> extends Tree<K, E>{
         super.insert(key, data);
     }
 
-    print(ui: string): void {
-        this.clearTable();
+    print(): void {
+        TreeByHtml.clearTable();
         let elementTable = document.createElement('table');
         elementTable.setAttribute("id", "table");
         // @ts-ignore
@@ -46,7 +46,7 @@ export class TreeByHtml<K, E> extends Tree<K, E>{
     }
 
 
-    private clearTable(): void {
+    private static clearTable(): void {
         /*
         Массив создаётся корректно, но удаляются не все элементы
         let elements = document.getElementById('table').children;
@@ -58,15 +58,6 @@ export class TreeByHtml<K, E> extends Tree<K, E>{
         let elementT = document.getElementById('table');
         if(elementT != null) {
             elementT.remove();
-        }
-    }
-
-    private getLevel(node: Node<K, E>): number {
-        if(node!= null){
-            // @ts-ignore
-            return 1+Math.max(this.getLevel(node.lChild), this.getLevel(node.rChild))
-        } else {
-            return 0;
         }
     }
 

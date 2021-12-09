@@ -8,6 +8,5 @@ tree.insert(2,"2");
 tree.insert(5,"5");
 tree.insert(8,"8");
 tree.insert(10,"10");
-tree.insert(1,"1");
-tree.insert(6,"6");
+tree.remove(10);
 tree.print();
