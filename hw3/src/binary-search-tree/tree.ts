@@ -36,7 +36,7 @@ export abstract class Tree<K, E> {
                 currentNode = currentNode.rChild;
             }
         }
-        if(currentNode.lChild == null && currentNode.rChild == null) {
+        if(currentNode.lChild == null && currentNode.rChild == null) { //лист
             if(currentNode == this._root) {
                 this._root = null;
             } else {
@@ -47,35 +47,113 @@ export abstract class Tree<K, E> {
                         parentNode.rChild = null;
                     }
             }
-        }
-    }
-
-    protected insert(key: K, data: E): void {
-        let newNode: Node<K, E> = new Node<K, E>(key, data, null, null);
-        if(this._root == null) {
-            this._root = newNode;
-            return;
-        }
-        let currentNode: Node<K, E> = this._root;
-        while (true) {
-            if(key == currentNode.key) {
-                return;
-            } else if(key < currentNode.key) { //left
-                if(currentNode.lChild == null) {
-                    currentNode.lChild = newNode;
-                    return;
-                } else {
-                    currentNode = currentNode.lChild;
+        } else if(currentNode.lChild != null && currentNode.rChild == null) { //узел с левым ребёнком
+            if(currentNode == this._root){
+                this._root = currentNode.lChild;
+            }
+            if(parentNode) {
+                if(currentNode == parentNode.lChild){
+                    parentNode.lChild = currentNode.lChild;
+                }else {
+                    parentNode.rChild = currentNode.lChild;
                 }
-            } else {                            //right
-                if(currentNode.rChild == null) {
-                    currentNode.rChild = newNode;
-                    return;
-                } else {
-                    currentNode = currentNode.rChild;
+            }
+        } else if(currentNode.lChild == null && currentNode.rChild != null) { //узел с правым ребёнком
+            if(currentNode == this._root){
+                this._root = currentNode.rChild;
+            }
+            if(parentNode) {
+                if(currentNode == parentNode.lChild){
+                    parentNode.lChild = currentNode.rChild;
+                }else {
+                    parentNode.rChild = currentNode.rChild;
+                }
+            }
+        } else {                                                               //узел с двумя дочерними узлами
+            let descendantNode: Node<K, E> | null = this.searchDescendant(currentNode);
+            if(currentNode == this._root) {
+                this._root = descendantNode;
+                return;
+            }
+            let parentDescendantNode: Node<K, E> | null = null;
+            if(descendantNode) {
+                parentDescendantNode = this.searchParent(descendantNode.key);
+                if(parentDescendantNode) {
+                    parentDescendantNode.lChild = null;                        //Зануляем левого ребёнка родителя потомка
+                    descendantNode.lChild = currentNode.lChild;
+                    descendantNode.rChild = currentNode.rChild;
+                    if(parentNode?.lChild == currentNode) {
+                        parentNode.lChild = descendantNode;
+                    } else if(parentNode?.rChild == currentNode) {
+                        parentNode.rChild = descendantNode;
+                    }
                 }
             }
         }
+    }
+
+    private searchDescendant(node: Node<K, E>): Node<K, E> | null{
+        let currentNode: Node<K, E> | null = node.rChild;
+        while (true) { // поиск потомка
+            if(currentNode?.lChild == null) {
+                return currentNode;
+            } else  {
+                currentNode = currentNode.lChild;
+            }
+        }
+    }
+
+    protected tClear(): void {
+
+    }
+
+    private searchParent(key: K): Node<K, E> | null {
+        let currentNode: Node<K, E> | null = this._root;
+        let parentNode: Node<K, E> | null = null;
+        while (currentNode?.key != key) {
+            parentNode = currentNode;
+            if(currentNode == null){
+                return null;
+            } else if (key < currentNode.key) {
+                currentNode = currentNode.lChild;
+            } else {
+                currentNode = currentNode.rChild;
+            }
+        }
+        return parentNode;
+    }
+
+
+    protected insert(key: K, data: E): void {
+        let newNode: Node<K, E> = new Node(key, data,null,null); //создали новый элемент
+        if(this._root == null) {
+            this._root = newNode;
+        } else {
+            let currentNode: Node<K, E> | null = this._root;
+            let parentNode: Node<K, E> = this._root;
+            while (true) {
+                if(currentNode!= null) {
+                    if(key == currentNode.key){ //такой элемент уже есть
+                        return;
+                    } else if(key<currentNode.key) { //двигаемся влево
+                        parentNode = currentNode;
+                        currentNode = currentNode.lChild;
+                    }  else {// двигаемся вправо
+                        parentNode = currentNode;
+                        currentNode = currentNode.rChild;
+                    }
+                } else {
+                    if(parentNode?.lChild == null && key < parentNode.key) {
+                        parentNode.lChild = newNode;
+                        return;
+                    } else {
+                        parentNode.rChild = newNode;
+                        return;
+                    }
+                }
+            }
+        }
+
     }
 
     protected getLevel(node: Node<K, E>): number {
