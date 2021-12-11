@@ -15,7 +15,7 @@ function init(): void {
 
 function onclickAdd(): void {
     // @ts-ignore
-    let a1 = Number(document.getElementById('key').value);
+    let a1 = Number(document.getElementById('key').value.replace(/\s/g, '').replace(/,/g, '.'));
     // @ts-ignore
     let a2 = document.getElementById('vvv').value;
     if(!isNaN(a1)) {
@@ -28,7 +28,7 @@ function onclickAdd(): void {
 
 function onclickGet(): void {
     // @ts-ignore
-    let key = Number(document.getElementById('key').value);
+    let key = Number(document.getElementById('key').value.replace(/\s/g, '').replace(/,/g, '.'));
     if(!isNaN(key)){
         let element = treeNS.get(key);
         if(element == null){
@@ -43,7 +43,7 @@ function onclickGet(): void {
 
 function onclickRemove(): void {
     // @ts-ignore
-    let key = Number(document.getElementById('key').value);
+    let key = Number(document.getElementById('key').value.replace(/\s/g, '').replace(/,/g, '.'));
     if(!isNaN(key)){
         let element = treeNS.get(key);
         if(element == null){
