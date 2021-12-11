@@ -8,8 +8,10 @@ body {
 div.innerContainer {
     padding-top: 5px;
 }
-div.container{
-    width: 900px;
+div.container {
+    min-width: 900px;
+    max-width: 1200px;
+    display: inline-block;
     background-color: #3F3D44;
     padding-top: 10px;
     padding-bottom: 50px;
@@ -17,27 +19,30 @@ div.container{
     position: relative;
     margin: 30px auto;
 }
-span.marginX {
-    margin-left: 5px;
-    color:#9ADE0A;
-}
 .textSizer {
-    font-size: 25px;
+    font-size: 20px;
 }
 input.textBox{
-    width: 100px;
+    width: 120px;
     background-color: #8B8A91;
     color: #DBEF0D
 }
-button#Enter{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+span.inputName {
+    display: inline-block;
+    color:#9ADE0A;
+    width: 130px;
+    margin-bottom: 5px;
+}
+
+div.buttonsContainer{
     margin-top: 15px;
     padding: 2px 5px;
+}
+button.textSizer{
     font-size: 20px;
     background-color: #69696D;
     color: #9ADE0A;
+    width: 111px;
 }
 
 table#table{

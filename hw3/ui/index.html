@@ -8,16 +8,22 @@
 </head>
 <body>
 <div class="container">
-    <h2>Калькулятор квадратных уравнений</h2>
+    <h2>Binary tree search builder</h2>
     <div id="tableHere" class="innerContainer">
+        <div class="inputNameContainer textSizer">
+            <span class="inputName">Key</span><span class="inputName">Value</span>
+        </div>
         <label class="inputInterface">
-            <input class="" id="key" type="text"/><span class="marginX textSizer">Key</span>
-            <input class="" id="vvv" type="text"/><span class="marginX textSizer">Value</span>
+            <input class="textBox textSizer" id="key" type="text"/>
+            <input class="textBox textSizer" id="vvv" type="text"/>
         </label>
-        <button class="" id="add">add</button>
-        <button class="" id="get">get</button>
-        <button class="" id="remove">remove</button>
+        <div class="buttonsContainer">
+            <button class="textSizer" id="add">add</button>
+            <button class="textSizer" id="get">get</button>
+            <button class="textSizer" id="remove">remove</button>
+        </div>
     </div>
+    <table id="table"></table>
 </div>
 </body>
 </html>
