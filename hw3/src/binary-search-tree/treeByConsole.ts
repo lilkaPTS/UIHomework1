@@ -7,7 +7,6 @@ export class TreeByConsole<K, E> extends Tree<K, E>{
         super();
     }
 
-
     get(key: K): E | null {
         return super.get(key);
     }
@@ -39,6 +38,7 @@ export class TreeByConsole<K, E> extends Tree<K, E>{
         }
         return str;
     }
+
     private consolePrinterV2(node: Node<K, E>): void {
         if(node != null) {
             if(node.lChild)

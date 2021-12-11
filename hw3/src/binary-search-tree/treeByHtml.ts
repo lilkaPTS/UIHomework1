@@ -45,7 +45,6 @@ export class TreeByHtml<K, E> extends Tree<K, E>{
         }
     }
 
-
     private static clearTable(): void {
         /*
         Массив создаётся корректно, но удаляются не все элементы

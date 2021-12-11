@@ -103,10 +103,6 @@ export abstract class Tree<K, E> {
         }
     }
 
-    protected tClear(): void {
-
-    }
-
     private searchParent(key: K): Node<K, E> | null {
         let currentNode: Node<K, E> | null = this._root;
         let parentNode: Node<K, E> | null = null;
