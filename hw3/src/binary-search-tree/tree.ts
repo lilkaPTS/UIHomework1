@@ -71,22 +71,16 @@ export abstract class Tree<K, E> {
             }
         } else {                                                               //узел с двумя дочерними узлами
             let descendantNode: Node<K, E> | null = this.searchDescendant(currentNode);
-            if(currentNode == this._root) {
-                this._root = descendantNode;
-                return;
-            }
-            let parentDescendantNode: Node<K, E> | null = null;
             if(descendantNode) {
-                parentDescendantNode = this.searchParent(descendantNode.key);
-                if(parentDescendantNode) {
-                    parentDescendantNode.lChild = null;                        //Зануляем левого ребёнка родителя потомка
+                if (currentNode == this._root) {
+                    this._root = descendantNode;
                     descendantNode.lChild = currentNode.lChild;
-                    descendantNode.rChild = currentNode.rChild;
-                    if(parentNode?.lChild == currentNode) {
-                        parentNode.lChild = descendantNode;
-                    } else if(parentNode?.rChild == currentNode) {
-                        parentNode.rChild = descendantNode;
-                    }
+                } else if (parentNode?.lChild == currentNode) {
+                    parentNode.lChild = descendantNode;
+                    descendantNode.lChild = currentNode.lChild;
+                } else if (parentNode?.rChild == currentNode) {
+                    parentNode.rChild = descendantNode;
+                    descendantNode.lChild = currentNode.lChild;
                 }
             }
         }
