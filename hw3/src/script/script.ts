@@ -2,7 +2,7 @@ import {TreeByHtml} from "../binary-search-tree/treeByHtml.js";
 
 window.addEventListener('load', init, false);
 
-let vertexArray: Array<string> = []; //
+let treeNS: TreeByHtml<number, string> =  new TreeByHtml<number, string>();
 
 function init(): void {
     // @ts-ignore
@@ -15,30 +15,45 @@ function init(): void {
 
 function onclickAdd(): void {
     // @ts-ignore
-    let a1 = document.getElementById('key').value;
+    let a1 = Number(document.getElementById('key').value);
     // @ts-ignore
     let a2 = document.getElementById('vvv').value;
-    vertexArray[vertexArray.length] = String(a1 + "~" + a2);
-    let tree: TreeByHtml<number, string> = new TreeByHtml<number,string>();
-    for (let i = 0; i < vertexArray.length; i++) {
-        tree.insert(Number(vertexArray[i].split('~')[0]), vertexArray[i].split('~')[1])
+    if(!isNaN(a1)) {
+        treeNS.insert(a1,a2);
+        treeNS.print();
+    } else {
+        alert("Ключ должен быть числом");
     }
-    //tree.insert(a1,a2); ломается
-    tree.print();
 }
+
 function onclickGet(): void {
-    let tree: TreeByHtml<number, string> = new TreeByHtml<number,string>();
-    for (let i = 0; i < vertexArray.length; i++) {
-        tree.insert(Number(vertexArray[i].split('~')[0]), vertexArray[i].split('~')[1])
+    // @ts-ignore
+    let key = Number(document.getElementById('key').value);
+    if(!isNaN(key)){
+        let element = treeNS.get(key);
+        if(element == null){
+            alert("Элемент с таким ключом не найден");
+        } else {
+            alert(element);
+        }
+    } else {
+        alert("Ключ должен быть числом");
+    }
+}
+
+function onclickRemove(): void {
+    // @ts-ignore
+    let key = Number(document.getElementById('key').value);
+    if(!isNaN(key)){
+        let element = treeNS.get(key);
+        if(element == null){
+            alert("Элемент с таким ключом не найден");
+        } else {
+            treeNS.remove(key);
+            treeNS.print();
+        }
+    } else {
+        alert("Ключ должен быть числом");
     }
 
-    // @ts-ignore
-    let message: string | null = tree.get(document.getElementById('key').value);
-    if(message == null) {
-        message = "Элемент с таким ключом не найден!"
-    }
-    alert(message);
-}
-function onclickRemove(): void {
-    alert("проверка связи");
 }
