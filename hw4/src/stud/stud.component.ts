@@ -14,6 +14,7 @@ export class StudComponent implements OnInit {
   cDOB: any;
   cA: any;
   beginStudent: any;
+  search: any;
 
   students: Student[] = [
     new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5),
@@ -62,4 +63,6 @@ export class StudComponent implements OnInit {
     this.cDOB = undefined;
     this.cA = undefined;
   }
+
+
 }

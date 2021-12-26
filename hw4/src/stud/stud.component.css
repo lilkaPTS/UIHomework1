@@ -6,9 +6,17 @@
 input.textBox {
   margin: 5px;
   background-color: #8B8A91;
-  color: #DBEF0D
+  color: #DBEF0D;
 }
-
+input.textBoxSearch {
+  margin: 5px;
+  background-color: #8B8A91;
+  color: #DBEF0D;
+  width: 50px;
+}
+.found {
+color: #DBEF0D;
+}
 input.inputDOB {
   width: 247px;
 }
@@ -16,7 +24,7 @@ input.inputDOBInit {
   color: #787575;
   font-family: Georgia, serif;
 }
-.picDel {
+.pic {
   display: block;
   margin-left: auto;
   margin-right: auto;
