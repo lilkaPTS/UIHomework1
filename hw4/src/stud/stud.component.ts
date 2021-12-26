@@ -8,20 +8,18 @@ import {Student} from "./models/student";
 })
 export class StudComponent implements OnInit {
 
-  title = 'Hello World!!!';
+  students: Student[] = [
+    new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5),
+    new Student("Ксения", "Кулагина", "Андреевна", new Date('2000-06-01'), 4.3),
+    new Student("Дмитрий", "Войнов", "Сергеевич", new Date('2000-11-19'), 4.1),
+    new Student("Иван", "Иванов", "Иванович", new Date('2000-10-24'), 4.1)
+  ];
 
   constructor() {
-    setTimeout(()=>{
-      this.title = "hw4321";
-    }, 5000);
   }
 
   ngOnInit(): void {
 
-  }
-
-  createUser(): Student {
-    return new Student("Илья", "Гудима", "Алексеевич", new Date('July 20, 2000 00:00:00'), 4.5);
   }
 
 }
