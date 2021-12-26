@@ -8,8 +8,13 @@ input.textBox {
   background-color: #8B8A91;
   color: #DBEF0D
 }
+
 input.inputDOB {
-  width: 246px;
+  width: 247px;
+}
+input.inputDOBInit {
+  color: #787575;
+  font-family: Georgia, serif;
 }
 .picDel {
   display: block;

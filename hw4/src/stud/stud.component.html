@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <td>DOB:</td>
-          <td><input class = "inputDOB textBox textSizer" [(ngModel)]="cDOB" id="cDOB" type="date" name="cDOB" placeholder="DOB"></td>
+          <td><input [class.inputDOBInit] = "cDOB==undefined" class = "inputDOB textSizer textBox" [(ngModel)]="cDOB" id="cDOB" type="date" name="cDOB"></td>
         </tr>
         <tr>
           <td>Average:</td>
