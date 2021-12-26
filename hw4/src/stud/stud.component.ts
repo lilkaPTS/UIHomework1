@@ -14,6 +14,7 @@ export class StudComponent implements OnInit {
   cDOB: any;
   cA: any;
 
+
   students: Student[] = [
     new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5),
     new Student("Ксения", "Кулагина", "Андреевна", new Date('2000-06-01'), 4.3),
@@ -34,6 +35,18 @@ export class StudComponent implements OnInit {
 
   deleteStudent(selectedStudent: Student): void {
     this.students = this.students.filter(obj => obj !== selectedStudent);
+  }
+
+  fillEdit(selectedStudent: Student): void {
+    this.cFN = selectedStudent.firstName;
+    this.cLN = selectedStudent.lastName;
+    this.cP = selectedStudent.patronymic;
+    this.cDOB = selectedStudent.dOB.toISOString().split('T')[0];
+    this.cA = selectedStudent.average;
+  }
+
+  editStudent(): void {
+
   }
 
 }
