@@ -18,7 +18,7 @@ export class Student {
     return this.lastName
       .concat(" " + this.firstName)
       .concat(" " + this.patronymic)
-      .concat(" " + this.dOB.toDateString())
+      .concat(" " + this.dOB.toLocaleString().split(',')[0])
       .concat(" " + this._average);
   }
 
