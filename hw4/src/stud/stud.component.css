@@ -1,0 +1,11 @@
+input.input {
+  margin: 5px;
+}
+input.input.inputDOB {
+  width: 165px;
+}
+
+.button {
+  margin: 5px;
+  width: 80px;
+}
