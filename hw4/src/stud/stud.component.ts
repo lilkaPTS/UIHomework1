@@ -26,11 +26,12 @@ export class StudComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   addStudent(): void {
     this.students.push(new Student(this.cFN, this.cLN, this.cP, new Date(this.cDOB.toLocaleString()), this.cA));
+    this.beginStudent = '';
+    this.formClear();
   }
 
   deleteStudent(selectedStudent: Student): void {
@@ -49,7 +50,15 @@ export class StudComponent implements OnInit {
   editStudent(): void {
     if(this.beginStudent) {
       this.students[this.students.indexOf(this.beginStudent)] = new Student(this.cFN, this.cLN, this.cP, new Date(this.cDOB.toLocaleString()), this.cA);
+      this.formClear();
     }
   }
 
+  formClear(): void {
+    this.cFN = "";
+    this.cLN = "";
+    this.cP = "";
+    this.cDOB = "";
+    this.cA = "";
+  }
 }
