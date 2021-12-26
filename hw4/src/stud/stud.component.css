@@ -9,3 +9,10 @@ input.input.inputDOB {
   margin: 5px;
   width: 80px;
 }
+.picDel {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 30px;
+}

@@ -1,6 +1,7 @@
 <table>
   <tr *ngFor="let student of students">
     <td *ngFor="let val of student.toStudentString().split(' ')">{{val}}</td>
+    <td><img (click)="deleteStudent(student)" alt="delete" class="picDel" src="../assets/delete.png"/></td>
   </tr>
 </table>
 <br>

@@ -29,10 +29,11 @@ export class StudComponent implements OnInit {
   }
 
   addStudent(): void {
-    console.log(this.cLN);
-    console.log(this.cFN);
-    console.log(this.cP);
     this.students.push(new Student(this.cFN, this.cLN, this.cP, new Date(this.cDOB.toLocaleString()), this.cA));
+  }
+
+  deleteStudent(selectedStudent: Student): void {
+    this.students = this.students.filter(obj => obj !== selectedStudent);
   }
 
 }
