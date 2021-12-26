@@ -8,6 +8,12 @@ import {Student} from "./models/student";
 })
 export class StudComponent implements OnInit {
 
+  cFN: any;
+  cLN: any;
+  cP: any;
+  cDOB: any;
+  cA: any;
+
   students: Student[] = [
     new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5),
     new Student("Ксения", "Кулагина", "Андреевна", new Date('2000-06-01'), 4.3),
@@ -20,6 +26,13 @@ export class StudComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  addStudent(): void {
+    console.log(this.cLN);
+    console.log(this.cFN);
+    console.log(this.cP);
+    this.students.push(new Student(this.cFN, this.cLN, this.cP, new Date(this.cDOB.toLocaleString()), this.cA));
   }
 
 }
