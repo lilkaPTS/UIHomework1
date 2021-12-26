@@ -13,7 +13,7 @@ export class StudComponent implements OnInit {
   cP: any;
   cDOB: any;
   cA: any;
-
+  beginStudent: any;
 
   students: Student[] = [
     new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5),
@@ -43,10 +43,13 @@ export class StudComponent implements OnInit {
     this.cP = selectedStudent.patronymic;
     this.cDOB = selectedStudent.dOB.toISOString().split('T')[0];
     this.cA = selectedStudent.average;
+    this.beginStudent = selectedStudent;
   }
 
   editStudent(): void {
-
+    if(this.beginStudent) {
+      this.students[this.students.indexOf(this.beginStudent)] = new Student(this.cFN, this.cLN, this.cP, new Date(this.cDOB.toLocaleString()), this.cA);
+    }
   }
 
 }
