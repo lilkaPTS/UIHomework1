@@ -1,18 +1,62 @@
-input.input {
-  margin: 5px;
-}
-input.input.inputDOB {
-  width: 165px;
-}
+/*
 
-.button {
+
+
+*/
+input.textBox {
   margin: 5px;
-  width: 80px;
+  background-color: #8B8A91;
+  color: #DBEF0D
+}
+input.inputDOB {
+  width: 246px;
 }
 .picDel {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
+}
+div.container {
+  min-width: 900px;
+  max-width: 1200px;
+  display: inline-block;
+  background-color: #3F3D44;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  border-radius: 25px;
+  position: relative;
+  margin: 30px auto;
+}
+.textSizer {
+  font-size: 20px;
+}
+table.tableForm {
+  margin: auto;
+}
+div.buttonsContainer{
+  margin-top: 15px;
+  padding: 2px 5px;
+}
+
+.button.textSizer{
+  text-align: center;
+  font-size: 20px;
+  background-color: #69696D;
+  color: #9ADE0A;
+  width: 100px;
+  margin: 5px;
+}
+
+table#table{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+table#table td {
+  text-align: center;
+  padding: 5px;
+  width: 50px;
 }

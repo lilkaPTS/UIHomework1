@@ -26,6 +26,7 @@ export class StudComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.cFN);
   }
 
   addStudent(): void {
@@ -55,10 +56,10 @@ export class StudComponent implements OnInit {
   }
 
   formClear(): void {
-    this.cFN = "";
-    this.cLN = "";
-    this.cP = "";
-    this.cDOB = "";
-    this.cA = "";
+    this.cFN = undefined;
+    this.cLN = undefined;
+    this.cP = undefined;
+    this.cDOB = undefined;
+    this.cA = undefined;
   }
 }

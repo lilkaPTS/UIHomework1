@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Verdana",	sans-serif;
+  color:white;
+  margin: 0;
+  background-color: #2B282F;
+  text-align: center;
+}
