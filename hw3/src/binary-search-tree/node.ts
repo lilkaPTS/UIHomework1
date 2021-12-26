@@ -4,7 +4,6 @@ export class Node<K, E> {
     private _lChild: Node<K, E> | null;
     private _rChild: Node<K, E> | null;
 
-
     constructor(key: K, data: E, lChild: Node<K, E> | null, rChild: Node<K, E> | null) {
         this._key = key;
         this._data = data;
