@@ -84,7 +84,7 @@
     </tr>
     <tr [class.filtered] = "filter(student.dOB, student.average)" [class.found]="search == student.lastName" *ngFor="let student of students">
       <td *ngFor="let val of student.toStudentString().split(' ')">{{val}}</td>
-      <td class="tdImg"><img (click)="deleteStudent(student)" alt="delete" class="pic" src="../../assets/delete.png"/></td>
+      <td class="tdImg"><img (click)="yesNoDialog(student)" alt="delete" class="pic" src="../../assets/delete.png"/></td>
       <td class="tdImg"><img (click)="fillEdit(student)" alt="edit" class="pic" src="../../assets/edit.png"/></td>
     </tr>
   </table>

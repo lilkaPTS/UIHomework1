@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {Student} from "./models/student";
+import {Student} from "../models/student";
+import {DialogService} from "../services/dialog.service";
 
 @Component({
   selector: 'app-stud',
@@ -25,6 +26,23 @@ export class StudComponent{
     new Student("Дмитрий", "Войнов", "Сергеевич", new Date('2000-11-19'), 4.1),
     new Student("Иван", "Иванов", "Иванович", new Date('2000-10-24'), 4.1)
   ];
+
+  constructor(private dialog: DialogService) {}
+
+  yesNoDialog(selectedStudent: Student) {
+    this.dialog
+      .confirmDialog({
+        title: 'Are you sure?',
+        message: 'Are you sure you want to do this?',
+        confirmCaption: 'Yes',
+        cancelCaption: 'No',
+      })
+      .subscribe((yes) => {
+        if (yes) {
+          this.deleteStudent(selectedStudent);
+        }
+      });
+  }
 
   addStudent(): void {
     this.students.push(new Student(this.cFN, this.cLN, this.cP, new Date(this.cDOB.toLocaleString()), this.cA));

@@ -7,10 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'hw4321';
-  constructor() {
-    setTimeout(()=>{
-      this.title = "Changed!!";
-    }, 5000);
-  }
+
 }
