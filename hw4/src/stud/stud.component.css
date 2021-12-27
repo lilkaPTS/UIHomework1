@@ -1,8 +1,3 @@
-/*
-
-
-
-*/
 i {
   border: solid #19181b;
   border-width: 0 3px 3px 0;
@@ -10,24 +5,13 @@ i {
   padding: 3px;
 }
 .active {
-  border: solid red;
+  border: solid white;
   border-width: 0 3px 3px 0;
 }
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-
 .up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
-
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);

@@ -14,7 +14,7 @@ export class Student {
     this._average = average;
   }
 
-  toStudentString(): String {
+  toStudentString(): string {
     return this.lastName
       .concat(" " + this.firstName)
       .concat(" " + this.patronymic)

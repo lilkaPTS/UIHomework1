@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Student} from "./models/student";
 
 @Component({
@@ -6,7 +6,7 @@ import {Student} from "./models/student";
   templateUrl: './stud.component.html',
   styleUrls: ['./stud.component.css']
 })
-export class StudComponent implements OnInit {
+export class StudComponent{
 
   cFN: any;
   cLN: any;
@@ -25,12 +25,6 @@ export class StudComponent implements OnInit {
     new Student("Дмитрий", "Войнов", "Сергеевич", new Date('2000-11-19'), 4.1),
     new Student("Иван", "Иванов", "Иванович", new Date('2000-10-24'), 4.1)
   ];
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   addStudent(): void {
     this.students.push(new Student(this.cFN, this.cLN, this.cP, new Date(this.cDOB.toLocaleString()), this.cA));
@@ -76,7 +70,7 @@ export class StudComponent implements OnInit {
   }
 
   sortBy(fieldName: string): void {
-    let bufArr: Array<any> = [];
+    const bufArr: Array<any> = [];
     if(fieldName == "lastName") {
       this.students.forEach(s => bufArr.push(s.lastName));
     }
@@ -97,9 +91,9 @@ export class StudComponent implements OnInit {
   }
 
   sort(bufArr: Array<any>, fieldName: string): void {
-    let resultArr: Student[] = [];
+    const resultArr: Student[] = [];
     for (let i = 0; i < bufArr.length; i++)
-      for(let s of this.students) {
+      for(const s of this.students) {
         let comparisonField: any = undefined;
         switch (fieldName) {
           case "lastName": {
