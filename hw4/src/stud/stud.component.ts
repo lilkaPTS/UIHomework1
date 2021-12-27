@@ -117,7 +117,7 @@ export class StudComponent{
             break;
           }
         }
-        if(comparisonField == bufArr[i]){
+        if(comparisonField == bufArr[i] && !resultArr.find(x => x===s)){
           resultArr.push(s);
           break;
         }
@@ -126,7 +126,7 @@ export class StudComponent{
       this.sortFlag = fieldName;
       this.students = resultArr;
     } else {
-      this.sortFlag = 'r'.concat(fieldName[0].toUpperCase() + fieldName.substr(1));
+      this.sortFlag = 'r'.concat(fieldName[0].toUpperCase() + fieldName.slice(1));
       console.log(this.sortFlag);
       this.students.reverse();
     }
