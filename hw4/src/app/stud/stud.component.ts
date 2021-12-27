@@ -88,7 +88,7 @@ export class StudComponent implements OnInit{
   }
 
   filter(sDob: Date, sAvg: number): boolean {
-    return (this.dOBFilter && this.dOBFilter.toLocaleString() !== sDob.toISOString().split('T')[0]) || (this.avgFilter && this.avgFilter !== sAvg);
+    return (this.dOBFilter && this.dOBFilter.toLocaleString() < sDob.toISOString().split('T')[0]) || (this.avgFilter && this.avgFilter > sAvg);
   }
 
   sortBy(fieldName: string): void {
