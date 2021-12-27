@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Student} from "../models/student";
 import {DialogService} from "../services/dialog.service";
 
@@ -7,7 +7,7 @@ import {DialogService} from "../services/dialog.service";
   templateUrl: './stud.component.html',
   styleUrls: ['./stud.component.css']
 })
-export class StudComponent{
+export class StudComponent implements OnInit{
 
   cFN: any;
   cLN: any;
@@ -19,16 +19,18 @@ export class StudComponent{
   dOBFilter: any;
   avgFilter: any;
   sortFlag: any;
-  errorShowFlag: boolean = false;
+  errorShowFlag = false;
 
-  students: Student[] = [
-    new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5),
-    new Student("Ксения", "Кулагина", "Андреевна", new Date('2000-06-01'), 4.3),
-    new Student("Дмитрий", "Войнов", "Сергеевич", new Date('2000-11-19'), 4.1),
-    new Student("Иван", "Иванов", "Иванович", new Date('2000-10-24'), 4.1)
-  ];
+  students: Student[] = [];
 
   constructor(private dialog: DialogService) {}
+
+  ngOnInit(): void {
+    this.students.push(new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5));
+    this.students.push(new Student("Ксения", "Кулагина", "Андреевна", new Date('2000-06-01'), 4.3));
+    this.students.push(new Student("Дмитрий", "Войнов", "Сергеевич", new Date('2000-11-19'), 4.1));
+    this.students.push(new Student("Иван", "Иванов", "Иванович", new Date('2000-10-24'), 4.1));
+  }
 
   yesNoDialog(selectedStudent: Student) {
     this.dialog

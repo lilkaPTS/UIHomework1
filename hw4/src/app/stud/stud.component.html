@@ -30,7 +30,7 @@
           <td></td>
           <td>
             <p class="mat-error" *ngIf="fullName.invalid && errorShowFlag">First and last name must not be empty!</p>
-            <p class="mat-error" *ngIf="average.invalid && errorShowFlag">The average score should be in the range from 0% to 100%!</p>
+            <p class="mat-error" *ngIf="average.invalid && errorShowFlag">The average score should be in the range from 0 to 5!</p>
             <p class="mat-error" *ngIf="dob.invalid && errorShowFlag">Date of birth cannot be empty!</p>
             <input (click)="editStudent()" class="button textSizer" type = "button" value="Edit">
             <input *ngIf="fullName.invalid || average.invalid || dob.invalid" (click)="errorShowFlag = true" class="button textSizer" type = "button" value="Add">
