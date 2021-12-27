@@ -19,6 +19,7 @@ export class StudComponent{
   dOBFilter: any;
   avgFilter: any;
   sortFlag: any;
+  errorShowFlag: boolean = false;
 
   students: Student[] = [
     new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5),
@@ -45,8 +46,9 @@ export class StudComponent{
   }
 
   addStudent(): void {
-    this.students.push(new Student(this.cFN, this.cLN, this.cP == "" ? "---" : this.cP, new Date(this.cDOB.toLocaleString()), this.cA));
+    this.students.push(new Student(this.cFN, this.cLN, (this.cP == "" || this.cP == undefined) ? "---" : this.cP, new Date(this.cDOB.toLocaleString()), this.cA));
     this.beginStudent = '';
+    this.errorShowFlag = false;
     this.formClear();
   }
 
