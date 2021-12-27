@@ -55,14 +55,23 @@
         </tr>
       </table>
     </form>
-  <p>{{avgFilter}}</p>
   <table id="table">
     <tr>
-      <td (click)="sortBy('lastName')"><i class="up"></i></td>
-      <td (click)="sortBy('firstName')"><i class="up"></i></td>
-      <td (click)="sortBy('patronymic')"><i class="up"></i></td>
-      <td (click)="sortBy('dOB')"><i class="up"></i></td>
-      <td (click)="sortBy('average')"><i class="up"></i></td>
+      <td (click)="sortBy('lastName')">
+        <i [class.down]="sortFlag == 'lastName'" [class.up]="sortFlag != 'lastName' || sortFlag == 'rLastName'" [class.active]="sortFlag == 'lastName' || sortFlag == 'rLastName'"></i>
+      </td>
+      <td (click)="sortBy('firstName')">
+        <i [class.down]="sortFlag == 'firstName'" [class.up]="sortFlag != 'firstName' || sortFlag == 'rFirstName'" [class.active]="sortFlag == 'firstName' || sortFlag == 'rFirstName'"></i>
+      </td>
+      <td (click)="sortBy('patronymic')">
+        <i [class.down]="sortFlag == 'patronymic'" [class.up]="sortFlag != 'patronymic' || sortFlag == 'rPatronymic'" [class.active]="sortFlag == 'patronymic' || sortFlag == 'rPatronymic'"></i>
+      </td>
+      <td (click)="sortBy('dOB')">
+        <i [class.down]="sortFlag == 'dOB'" [class.up]="sortFlag != 'dOB' || sortFlag == 'rDOB'" [class.active]="sortFlag == 'dOB' || sortFlag == 'rDOB'"></i>
+      </td>
+      <td (click)="sortBy('average')">
+        <i [class.down]="sortFlag == 'average'" [class.up]="sortFlag != 'average' || sortFlag == 'rAverage'" [class.active]="sortFlag == 'average' || sortFlag == 'rAverage'"></i>
+      </td>
       <td class="tdImg"></td>
       <td class="tdImg"></td>
     </tr>
@@ -72,7 +81,6 @@
       <td class="tdImg"><img (click)="fillEdit(student)" alt="edit" class="pic" src="../assets/edit.png"/></td>
     </tr>
   </table>
-  <button (click)="sortBy('firstName')">test</button>
 </div>
 
 

@@ -17,6 +17,7 @@ export class StudComponent implements OnInit {
   search: any;
   dOBFilter: any;
   avgFilter: any;
+  sortFlag: any;
 
   students: Student[] = [
     new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5),
@@ -128,8 +129,11 @@ export class StudComponent implements OnInit {
         }
       }
     if(!this.arrEquals(resultArr, this.students)){
+      this.sortFlag = fieldName;
       this.students = resultArr;
     } else {
+      this.sortFlag = 'r'.concat(fieldName[0].toUpperCase() + fieldName.substr(1));
+      console.log(this.sortFlag);
       this.students.reverse();
     }
   }

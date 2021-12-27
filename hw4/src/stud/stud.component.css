@@ -9,7 +9,10 @@ i {
   display: inline-block;
   padding: 3px;
 }
-
+.active {
+  border: solid red;
+  border-width: 0 3px 3px 0;
+}
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
