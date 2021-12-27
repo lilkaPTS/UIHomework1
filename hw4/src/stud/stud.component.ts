@@ -74,5 +74,76 @@ export class StudComponent implements OnInit {
     return (this.dOBFilter && this.dOBFilter.toLocaleString() !== sDob.toISOString().split('T')[0]) || (this.avgFilter && this.avgFilter !== sAvg);
   }
 
+  sortBy(fieldName: string): void {
+    let bufArr: Array<any> = [];
+    if(fieldName == "lastName") {
+      this.students.forEach(s => bufArr.push(s.lastName));
+    }
+    if(fieldName == "firstName") {
+      this.students.forEach(s => bufArr.push(s.firstName));
+    }
+    if(fieldName == "patronymic") {
+      this.students.forEach(s => bufArr.push(s.patronymic));
+    }
+    if(fieldName == "dOB") {
+      this.students.forEach(s => bufArr.push(s.dOB));
+    }
+    if(fieldName == "average") {
+      this.students.forEach(s => bufArr.push(s.average));
+    }
+    bufArr.sort();
+    this.sort(bufArr, fieldName);
+  }
 
+  sort(bufArr: Array<any>, fieldName: string): void {
+    let resultArr: Student[] = [];
+    for (let i = 0; i < bufArr.length; i++)
+      for(let s of this.students) {
+        let comparisonField: any = undefined;
+        switch (fieldName) {
+          case "lastName": {
+            comparisonField = s.lastName;
+            break;
+          }
+          case "firstName": {
+            comparisonField = s.firstName
+            break;
+          }
+          case "patronymic": {
+            comparisonField = s.patronymic;
+            break;
+          }
+          case "dOB": {
+            comparisonField = s.dOB;
+            break;
+          }
+          case "average": {
+            comparisonField = s.average;
+            break;
+          }
+        }
+        if(comparisonField == bufArr[i]){
+          resultArr.push(s);
+          break;
+        }
+      }
+    if(!this.arrEquals(resultArr, this.students)){
+      this.students = resultArr;
+    } else {
+      this.students.reverse();
+    }
+  }
+
+  arrEquals(a1: Array<any>, a2: Array<any>): boolean {
+    if(a1.length == a2.length) {
+      for (let i = 0; i < a1.length; i++){
+        if(a1[i] != a2[i]) {
+          return false;
+        }
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

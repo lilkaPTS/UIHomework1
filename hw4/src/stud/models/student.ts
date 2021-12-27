@@ -22,6 +22,8 @@ export class Student {
       .concat(" " + this._average);
   }
 
+
+
   get firstName(): string {
     return this._firstName;
   }

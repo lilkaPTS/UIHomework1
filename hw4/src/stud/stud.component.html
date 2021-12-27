@@ -58,11 +58,11 @@
   <p>{{avgFilter}}</p>
   <table id="table">
     <tr>
-      <td><i class="up"></i></td>
-      <td><i class="up"></i></td>
-      <td><i class="up"></i></td>
-      <td><i class="up"></i></td>
-      <td><i class="up"></i></td>
+      <td (click)="sortBy('lastName')"><i class="up"></i></td>
+      <td (click)="sortBy('firstName')"><i class="up"></i></td>
+      <td (click)="sortBy('patronymic')"><i class="up"></i></td>
+      <td (click)="sortBy('dOB')"><i class="up"></i></td>
+      <td (click)="sortBy('average')"><i class="up"></i></td>
       <td class="tdImg"></td>
       <td class="tdImg"></td>
     </tr>
@@ -72,6 +72,7 @@
       <td class="tdImg"><img (click)="fillEdit(student)" alt="edit" class="pic" src="../assets/edit.png"/></td>
     </tr>
   </table>
+  <button (click)="sortBy('firstName')">test</button>
 </div>
 
 
