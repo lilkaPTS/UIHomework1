@@ -15,6 +15,8 @@ export class StudComponent implements OnInit {
   cA: any;
   beginStudent: any;
   search: any;
+  dOBFilter: any;
+  avgFilter: any;
 
   students: Student[] = [
     new Student("Илья", "Гудима", "Алексеевич", new Date('2000-07-20'), 4.5),
@@ -27,7 +29,6 @@ export class StudComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.cFN);
   }
 
   addStudent(): void {
@@ -64,5 +65,20 @@ export class StudComponent implements OnInit {
     this.cA = undefined;
   }
 
+  filterClear(): void {
+    this.dOBFilter = undefined;
+    this.avgFilter = undefined;
+  }
+
+  filter(sDob: Date, sAvg: number): boolean {
+    // if(this.dOBFilter && this.dOBFilter.toLocaleString() !== sDob.toISOString().split('T')[0]) {
+    //   return true;
+    // }
+    // if(this.avgFilter && this.avgFilter !== sAvg) {
+    //   return true;
+    // }
+    return (this.dOBFilter && this.dOBFilter.toLocaleString() !== sDob.toISOString().split('T')[0]) || (this.avgFilter && this.avgFilter !== sAvg);
+
+  }
 
 }

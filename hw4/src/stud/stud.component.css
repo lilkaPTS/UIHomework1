@@ -17,6 +17,9 @@ input.textBoxSearch {
 .found {
 color: #DBEF0D;
 }
+.filtered {
+  display: none;
+}
 input.inputDOB {
   width: 247px;
 }
