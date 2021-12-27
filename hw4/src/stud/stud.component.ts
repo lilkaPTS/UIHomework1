@@ -71,14 +71,8 @@ export class StudComponent implements OnInit {
   }
 
   filter(sDob: Date, sAvg: number): boolean {
-    // if(this.dOBFilter && this.dOBFilter.toLocaleString() !== sDob.toISOString().split('T')[0]) {
-    //   return true;
-    // }
-    // if(this.avgFilter && this.avgFilter !== sAvg) {
-    //   return true;
-    // }
     return (this.dOBFilter && this.dOBFilter.toLocaleString() !== sDob.toISOString().split('T')[0]) || (this.avgFilter && this.avgFilter !== sAvg);
-
   }
+
 
 }

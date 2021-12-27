@@ -3,6 +3,33 @@
 
 
 */
+i {
+  border: solid #19181b;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
 input.textBox {
   margin: 5px;
   background-color: #8B8A91;
@@ -31,8 +58,8 @@ input.inputDOBInit {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
 }
 div.container {
   min-width: 900px;
@@ -71,8 +98,12 @@ table#table{
   margin-top: 30px;
 }
 
-table#table td {
+table#table td{
   text-align: center;
-  padding: 5px;
-  width: 50px;
+  display: inline-block;
+  width: 100px;
+}
+
+table#table td.tdImg {
+  width: 30px;
 }
