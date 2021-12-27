@@ -79,6 +79,10 @@ div.buttonsContainer{
   margin: 5px;
 }
 
+table.tableForm td {
+  width: 100px;
+}
+
 table#table{
   margin-left: auto;
   margin-right: auto;
