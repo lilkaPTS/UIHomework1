@@ -28,6 +28,7 @@ input.textBoxSearch {
   color: #DBEF0D;
   width: 50px;
 }
+
 .found {
 color: #DBEF0D;
 }
@@ -36,6 +37,9 @@ color: #DBEF0D;
 }
 input.inputDOB {
   width: 247px;
+}
+input.averageBox {
+  width: 244px;
 }
 input.inputDOBInit {
   color: #787575;

@@ -45,7 +45,7 @@ export class StudComponent{
   }
 
   addStudent(): void {
-    this.students.push(new Student(this.cFN, this.cLN, this.cP, new Date(this.cDOB.toLocaleString()), this.cA));
+    this.students.push(new Student(this.cFN, this.cLN, this.cP == "" ? "---" : this.cP, new Date(this.cDOB.toLocaleString()), this.cA));
     this.beginStudent = '';
     this.formClear();
   }
